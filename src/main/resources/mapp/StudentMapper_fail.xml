@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hqjg.mapper.StudentMapper_fail">
+
+    <!-- type为实体类Student，包名已经配置，可以直接写类名 -->
+    <resultMap id="stuMap" type="com.hqjg.domain.Student">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="state" column="state" />
+        <result property="country" column="country" />
+    </resultMap>
+
+    <!--<select id="getById" resultMap="stuMap" resultType="com.hqjg.domain.Student">
+        SELECT *
+        FROM STUDENT
+        WHERE ID = #{id}
+    </select>
+
+    <select id="likeName" resultMap="stuMap" parameterType="string" resultType="list">
+        SELECT *
+        FROM STUDENT
+        WHERE NAME LIKE CONCAT('%',#{name},'%')
+    </select>
+
+    <select id="getNameById" resultType="string">
+        SELECT NAME
+        FROM STUDENT
+        WHERE ID = #{id}
+    </select>-->
+
+    <select id="findAll" resultType="map">
+        SELECT
+          id, name, state, country
+        FROM student
+    </select>
+    <select id="findByName" resultType="java.util.Map">
+        SELECT *
+        FROM student
+        where name = #{name}
+    </select>
+
+
+</mapper>
